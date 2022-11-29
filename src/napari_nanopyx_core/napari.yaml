@@ -1,0 +1,30 @@
+name: napari-nanopyx-core
+display_name: napari NanoPyx-Core
+contributions:
+  commands:
+    - id: napari-nanopyx-core.estimate_drift_correction
+      title: Estimate Drift Correction
+      python_name: napari_nanopyx_core.drift_alignment:estimate_drift_correction
+    - id: napari-nanopyx-core.apply_drift_correction
+      title: Apply Drift Correction
+      python_name: napari_nanopyx_core.drift_alignment:apply_drift_correction
+    - id: napari-nanopyx-core.estimate_channel_alignment
+      title: Estimate Channel Alignment
+      python_name: napari_nanopyx_core.channel_alignment:estimate_channel_alignment
+    - id: napari-nanopyx-core.apply_channel_alignment
+      title: Apply Channel Alignment
+      python_name: napari_nanopyx_core.channel_alignment:apply_channel_alignment
+  widgets:
+    - command: napari-nanopyx-core.estimate_drift_correction
+      display_name: Estimate Drift Correction
+      autogenerate: false
+    - command: napari-nanopyx-core.apply_drift_correction
+      display_name: Apply Drift Correction
+      autogenerate: false
+    - command: napari-nanopyx-core.estimate_channel_alignment
+      display_name: Estimate Channel Alignment
+      autogenerate: false
+    - command: napari-nanopyx-core.apply_channel_alignment
+      display_name: Apply Channel Alignment
+      autogenerate: false
+
