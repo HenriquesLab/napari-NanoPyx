@@ -1,11 +1,11 @@
-# napari-nanopyx-core
+# napari-nanopyx
 
-[![License GNU LGPL v3.0](https://img.shields.io/pypi/l/napari-nanopyx-core.svg?color=green)](https://github.com/HenriquesLab/napari-NanoPyx-Core/raw/main/LICENSE)
-[![PyPI](https://img.shields.io/pypi/v/napari-nanopyx-core.svg?color=green)](https://pypi.org/project/napari-nanopyx-core)
-[![Python Version](https://img.shields.io/pypi/pyversions/napari-nanopyx-core.svg?color=green)](https://python.org)
-[![tests](https://github.com/HenriquesLab/napari-NanoPyx-Core/workflows/tests/badge.svg)](https://github.com/HenriquesLab/napari-NanoPyx-Core/actions)
-[![codecov](https://codecov.io/gh/brunomsaraiva/napari-nanopyx-core/branch/main/graph/badge.svg)](https://codecov.io/gh/brunomsaraiva/napari-nanopyx-core)
-[![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/napari-nanopyx-core)](https://napari-hub.org/plugins/napari-nanopyx-core)
+[![License GNU LGPL v3.0](https://img.shields.io/pypi/l/napari-nanopyx.svg?color=green)](https://github.com/HenriquesLab/napari-NanoPyx/raw/main/LICENSE)
+[![PyPI](https://img.shields.io/pypi/v/napari-nanopyx.svg?color=green)](https://pypi.org/project/napari-nanopyx)
+[![Python Version](https://img.shields.io/pypi/pyversions/napari-nanopyx.svg?color=green)](https://python.org)
+[![tests](https://github.com/HenriquesLab/napari-NanoPyx/workflows/tests/badge.svg)](https://github.com/HenriquesLab/napari-NanoPyx/actions)
+[![codecov](https://codecov.io/gh/brunomsaraiva/napari-nanopyx/branch/main/graph/badge.svg)](https://codecov.io/gh/brunomsaraiva/napari-nanopyx)
+[![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/napari-nanopyx)](https://napari-hub.org/plugins/napari-nanopyx)
 
 napari plugin of Nanoscopy Python library (NanoPyx, the successor to NanoJ) - focused on light microscopy and super-resolution imaging
 
@@ -23,9 +23,9 @@ https://napari.org/plugins/index.html
 
 ## Installation
 
-You can install `napari-nanopyx-core` via [pip]:
+You can install `napari-nanopyx` via [pip]:
 
-    pip install napari-nanopyx-core
+    pip install napari-nanopyx
 
 
 
@@ -38,7 +38,7 @@ the coverage at least stays the same before you submit a pull request.
 ## License
 
 Distributed under the terms of the [GNU LGPL v3.0] license,
-"napari-nanopyx-core" is free and open source software
+"napari-nanopyx" is free and open source software
 
 ## Issues
 
