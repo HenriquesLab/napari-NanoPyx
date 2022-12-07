@@ -31,9 +31,9 @@ from napari.utils.notifications import show_info
                                       "mode": "w"},
                apply_correction={"value": True,
                                  "label": "Apply"})
-def estimate_drift_correction(viewer: Viewer, img: Image, ref_option: int, time_averaging: int,
-                              max_expected_drift: int, use_roi: bool, roi: Shapes, shift_calc_method: str,
-                              save_as_npy: bool, apply_correction: bool, save_drift_table_path=pathlib.Path.home()/"drift_table"):
+def estimate_drift_alignment(viewer: Viewer, img: Image, ref_option: int, time_averaging: int,
+                             max_expected_drift: int, use_roi: bool, roi: Shapes, shift_calc_method: str,
+                             save_as_npy: bool, apply_correction: bool, save_drift_table_path=pathlib.Path.home()/"drift_table"):
 
     if use_roi:
         roi_coords = roi.data[0]
@@ -44,12 +44,12 @@ def estimate_drift_correction(viewer: Viewer, img: Image, ref_option: int, time_
 
         print(x0, y0, x1, y1)
 
-        result = nanopyx.estimate_drift_correction(img.data, save_as_npy=save_as_npy, save_drift_table_path=str(save_drift_table_path), ref_option=ref_option,
+        result = nanopyx.estimate_drift_alignment(img.data, save_as_npy=save_as_npy, save_drift_table_path=str(save_drift_table_path), ref_option=ref_option,
                                                     time_averaging=time_averaging, max_expected_drift=max_expected_drift, shift_calc_method=shift_calc_method,
                                                     use_roi=use_roi, roi=(x0, y0, x1, y1), apply=apply_correction)
     
     else:
-        result = nanopyx.estimate_drift_correction(img.data, save_as_npy=save_as_npy, save_drift_table_path=str(save_drift_table_path), ref_option=ref_option,
+        result = nanopyx.estimate_drift_alignment(img.data, save_as_npy=save_as_npy, save_drift_table_path=str(save_drift_table_path), ref_option=ref_option,
                                                     time_averaging=time_averaging, max_expected_drift=max_expected_drift, shift_calc_method=shift_calc_method,
                                                     use_roi=use_roi, apply=apply_correction)
 
@@ -66,11 +66,11 @@ def estimate_drift_correction(viewer: Viewer, img: Image, ref_option: int, time_
 @magic_factory(call_button="Correct",
                drift_table_path={"mode": "r",
                                  "label": "Path to Drift Table"})
-def apply_drift_correction(viewer: Viewer, img: Image, drift_table_path: pathlib.Path):
+def apply_drift_alignment(viewer: Viewer, img: Image, drift_table_path: pathlib.Path):
     if str(drift_table_path).split(".")[-1] != "npy" and str(drift_table_path).split(".")[-1] != "csv":
         show_info("Drift table should either be a .csv or .npy file")
     else:
-        result = nanopyx.apply_drift_correction(img.data, path=str(drift_table_path))
+        result = nanopyx.apply_drift_alignment(img.data, path=str(drift_table_path))
         if result is not None:
             result_name = img.name + "_aligned"
             try:

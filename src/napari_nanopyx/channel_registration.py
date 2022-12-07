@@ -39,10 +39,10 @@ from napari.utils.notifications import show_info
                                "mode": "w"},
                apply={"value": True,
                       "label": "Apply"})
-def estimate_channel_alignment(viewer: Viewer, img: Image, ref_channel: int, max_shift: int, blocks_per_axis: int,
+def estimate_channel_registration(viewer: Viewer, img: Image, ref_channel: int, max_shift: int, blocks_per_axis: int,
                                min_similarity: float, method: str, save_translation_masks: bool, save_ccms: bool, apply: bool,
                                translation_mask_save_path=pathlib.Path.home()/"translation_mask", ccms_save_path=pathlib.Path.home()/"ccms"):
-    result = nanopyx.estimate_channel_alignment(img.data, ref_channel, max_shift, blocks_per_axis, min_similarity,
+    result = nanopyx.estimate_channel_registration(img.data, ref_channel, max_shift, blocks_per_axis, min_similarity,
                                                    method=method, save_translation_masks=save_translation_masks,
                                                    translation_mask_save_path=str(translation_mask_save_path),
                                                    save_ccms=save_ccms, ccms_save_path=str(ccms_save_path), apply=apply)
@@ -59,12 +59,12 @@ def estimate_channel_alignment(viewer: Viewer, img: Image, ref_channel: int, max
 @magic_factory(call_button="Correct",
                translation_mask_path={"mode": "r",
                                       "label": "Path to Translation Mask"})
-def apply_channel_alignment(viewer: Viewer, img: Image, translation_mask_path: pathlib.Path):
+def apply_channel_registration(viewer: Viewer, img: Image, translation_mask_path: pathlib.Path):
     if str(translation_mask_path).split(".")[-1] != "tif":
         show_info("Translation Mask file should be .tif file")
     else:
         translation_mask = imread(str(translation_mask_path))
-        result = nanopyx.apply_channel_alignment(img.data, translation_masks=translation_mask)
+        result = nanopyx.apply_channel_registration(img.data, translation_masks=translation_mask)
 
         if result is not None:
             result_name = img.name + "_aligned"
