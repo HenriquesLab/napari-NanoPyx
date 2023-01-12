@@ -1,5 +1,6 @@
 import pathlib
 import nanopyx
+from nanopyx.methods.drift_alignment import estimate_drift_alignment, apply_drift_alignment
 from tkinter import Image
 from napari import Viewer
 from napari.layers import Image, Shapes
@@ -17,11 +18,11 @@ from napari.utils.notifications import show_info
                shift_calc_method={"widget_type": "RadioButtons",
                                   "orientation": "vertical",
                                   "value": "Max Fitting",
-                                  "choices": [("Max", "Max"), ("Subpixel Fitting", "Max Fitting")],
+                                  "choices": [("Max", "Max"), ("Subpixel Fitting", "Max Fitting"), ("RCC", "rcc")],
                                   "label": "Shift Calculation Method"},
                time_averaging={"value": 1,
                                "label": "Time Averaging"},
-               max_expected_drift={"value": 10,
+               max_expected_drift={"value": 0,
                                    "label": "Max Expected Drift"},
                save_as_npy={"value": False,
                             "label": "Save Drift Table as npy"},
@@ -44,14 +45,17 @@ def estimate_drift_alignment(viewer: Viewer, img: Image, ref_option: int, time_a
 
         print(x0, y0, x1, y1)
 
-        result = nanopyx.estimate_drift_alignment(img.data, save_as_npy=save_as_npy, save_drift_table_path=str(save_drift_table_path), ref_option=ref_option,
-                                                    time_averaging=time_averaging, max_expected_drift=max_expected_drift, shift_calc_method=shift_calc_method,
-                                                    use_roi=use_roi, roi=(x0, y0, x1, y1), apply=apply_correction)
+        result = estimate_drift_alignment(img.data, save_as_npy=save_as_npy,
+                                          save_drift_table_path=str(save_drift_table_path), ref_option=ref_option,
+                                          time_averaging=time_averaging, max_expected_drift=max_expected_drift,
+                                          shift_calc_method=shift_calc_method, use_roi=use_roi, roi=(x0, y0, x1, y1),
+                                          apply=apply_correction)
     
     else:
-        result = nanopyx.estimate_drift_alignment(img.data, save_as_npy=save_as_npy, save_drift_table_path=str(save_drift_table_path), ref_option=ref_option,
-                                                    time_averaging=time_averaging, max_expected_drift=max_expected_drift, shift_calc_method=shift_calc_method,
-                                                    use_roi=use_roi, apply=apply_correction)
+        result = estimate_drift_alignment(img.data, save_as_npy=save_as_npy,
+                                          save_drift_table_path=str(save_drift_table_path), ref_option=ref_option,
+                                          time_averaging=time_averaging, max_expected_drift=max_expected_drift,
+                                          shift_calc_method=shift_calc_method, use_roi=use_roi, apply=apply_correction)
 
     if result is not None:
         result_name = img.name + "_aligned"
@@ -70,7 +74,7 @@ def apply_drift_alignment(viewer: Viewer, img: Image, drift_table_path: pathlib.
     if str(drift_table_path).split(".")[-1] != "npy" and str(drift_table_path).split(".")[-1] != "csv":
         show_info("Drift table should either be a .csv or .npy file")
     else:
-        result = nanopyx.apply_drift_alignment(img.data, path=str(drift_table_path))
+        result = apply_drift_alignment(img.data, path=str(drift_table_path))
         if result is not None:
             result_name = img.name + "_aligned"
             try:
