@@ -1,6 +1,6 @@
 import os
 import pathlib
-import nanopyx
+from nanopyx.methods import channel_registration
 from napari import Viewer
 from tkinter import Image
 from skimage.io import imread
@@ -27,7 +27,7 @@ from napari.utils.notifications import show_info
                method={"widget_type": "RadioButtons",
                        "orientation": "vertical",
                        "value": "subpixel",
-                       "choices": [("Max", "pixel"), ("Subpixel Fitting", "subpixel")],
+                       "choices": [("Max", "pixel"), ("Subpixel Fitting", "subpixel"), ("RCC", "rcc")],
                        "label": "Shift Calculation Method"},
                save_translation_masks={"value": True,
                                        "label": "Save Translation Masks"},
@@ -42,7 +42,7 @@ from napari.utils.notifications import show_info
 def estimate_channel_registration(viewer: Viewer, img: Image, ref_channel: int, max_shift: int, blocks_per_axis: int,
                                min_similarity: float, method: str, save_translation_masks: bool, save_ccms: bool, apply: bool,
                                translation_mask_save_path=pathlib.Path.home()/"translation_mask", ccms_save_path=pathlib.Path.home()/"ccms"):
-    result = nanopyx.estimate_channel_registration(img.data, ref_channel, max_shift, blocks_per_axis, min_similarity,
+    result = channel_registration.estimate_channel_registration(img.data, ref_channel, max_shift, blocks_per_axis, min_similarity,
                                                    method=method, save_translation_masks=save_translation_masks,
                                                    translation_mask_save_path=str(translation_mask_save_path),
                                                    save_ccms=save_ccms, ccms_save_path=str(ccms_save_path), apply=apply)
@@ -64,7 +64,7 @@ def apply_channel_registration(viewer: Viewer, img: Image, translation_mask_path
         show_info("Translation Mask file should be .tif file")
     else:
         translation_mask = imread(str(translation_mask_path))
-        result = nanopyx.apply_channel_registration(img.data, translation_masks=translation_mask)
+        result = channel_registration.apply_channel_registration(img.data, translation_masks=translation_mask)
 
         if result is not None:
             result_name = img.name + "_aligned"

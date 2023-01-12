@@ -1,5 +1,5 @@
 import pathlib
-import nanopyx
+from nanopyx.methods import drift_alignment
 from tkinter import Image
 from napari import Viewer
 from napari.layers import Image, Shapes
@@ -44,12 +44,12 @@ def estimate_drift_alignment(viewer: Viewer, img: Image, ref_option: int, time_a
 
         print(x0, y0, x1, y1)
 
-        result = nanopyx.estimate_drift_alignment(img.data, save_as_npy=save_as_npy, save_drift_table_path=str(save_drift_table_path), ref_option=ref_option,
+        result = drift_alignment.estimate_drift_alignment(img.data, save_as_npy=save_as_npy, save_drift_table_path=str(save_drift_table_path), ref_option=ref_option,
                                                     time_averaging=time_averaging, max_expected_drift=max_expected_drift, shift_calc_method=shift_calc_method,
                                                     use_roi=use_roi, roi=(x0, y0, x1, y1), apply=apply_correction)
     
     else:
-        result = nanopyx.estimate_drift_alignment(img.data, save_as_npy=save_as_npy, save_drift_table_path=str(save_drift_table_path), ref_option=ref_option,
+        result = drift_alignment.estimate_drift_alignment(img.data, save_as_npy=save_as_npy, save_drift_table_path=str(save_drift_table_path), ref_option=ref_option,
                                                     time_averaging=time_averaging, max_expected_drift=max_expected_drift, shift_calc_method=shift_calc_method,
                                                     use_roi=use_roi, apply=apply_correction)
 
@@ -70,7 +70,7 @@ def apply_drift_alignment(viewer: Viewer, img: Image, drift_table_path: pathlib.
     if str(drift_table_path).split(".")[-1] != "npy" and str(drift_table_path).split(".")[-1] != "csv":
         show_info("Drift table should either be a .csv or .npy file")
     else:
-        result = nanopyx.apply_drift_alignment(img.data, path=str(drift_table_path))
+        result = drift_alignment.apply_drift_alignment(img.data, path=str(drift_table_path))
         if result is not None:
             result_name = img.name + "_aligned"
             try:
