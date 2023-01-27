@@ -27,7 +27,7 @@ from napari.utils.notifications import show_info
                method={"widget_type": "RadioButtons",
                        "orientation": "vertical",
                        "value": "subpixel",
-                       "choices": [("Max", "pixel"), ("Subpixel Fitting", "subpixel"), ("RCC", "rcc")],
+                       "choices": [("Max", "pixel"), ("Subpixel Fitting", "subpixel")],
                        "label": "Shift Calculation Method"},
                save_translation_masks={"value": True,
                                        "label": "Save Translation Masks"},
