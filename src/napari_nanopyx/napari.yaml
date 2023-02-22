@@ -14,6 +14,9 @@ contributions:
     - id: napari-nanopyx.apply_channel_registration
       title: Apply Channel Registration
       python_name: napari_nanopyx.channel_registration:apply_channel_registration
+    - id: napari-nanopyx.generate_srrf_image
+      title: Generate SRRF Image
+      python_name: napari_nanopyx.srrf:generate_srrf_image
   widgets:
     - command: napari-nanopyx.estimate_drift_alignment
       display_name: Estimate Drift Correction
@@ -26,5 +29,8 @@ contributions:
       autogenerate: false
     - command: napari-nanopyx.apply_channel_registration
       display_name: Apply Channel Alignment
+      autogenerate: false
+    - command: napari-nanopyx.generate_srrf_image
+      display_name: Generate SRRF Image
       autogenerate: false
 
