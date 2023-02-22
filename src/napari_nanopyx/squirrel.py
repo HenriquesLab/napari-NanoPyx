@@ -12,8 +12,9 @@ from napari.utils.notifications import show_info
 @magic_factory(call_button="Analyse",
                img={"label": "Image Stack"},
                pixel_size={"value": 1,
-                           "min": 1,
+                           "min": 0.0000001,
                            "max": 10000000,
+                           "step": 0.000001,
                            "label": "Pixel Size"},
                units={"value": "px",
                       "label": "Units"},
@@ -35,8 +36,9 @@ def calculate_frc(img: Image, pixel_size: float, units: str,
 @magic_factory(call_button="Analyse",
                img={"label": "Image Stack"},
                pixel_size={"value": 1,
-                           "min": 1,
+                           "min": 0.0000001,
                            "max": 10000000,
+                           "step": 0.000001,
                            "label": "Pixel Size"},
                units={"value": "px",
                       "label": "Units"},
@@ -48,6 +50,7 @@ def calculate_decorr_analysis(img: Image, pixel_size: float, units: str,
         image = img.data.reshape(1, img.data.shape[0], img.data.shape[1])
     else:
         image = img.data
+    print(pixel_size, units)
     decorr = DecorrAnalysis(image, pixel_size=pixel_size, units=units)
     decorr.run_analysis()
     show_info(f"Resolution: {decorr.resolution} {units}")
