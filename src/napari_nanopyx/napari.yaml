@@ -17,6 +17,13 @@ contributions:
     - id: napari-nanopyx.generate_srrf_image
       title: Generate SRRF Image
       python_name: napari_nanopyx.srrf:generate_srrf_image
+    - id: napari-nanopyx.calculate_frc
+      title: Calculate FRC
+      python_name: napari_nanopyx.squirrel:calculate_frc
+    - id: napari-nanopyx.calculate_decorr_analysis
+      title: Calculate Decorrelation Analysis
+      python_name: napari_nanopyx.squirrel:calculate_decorr_analysis
+
   widgets:
     - command: napari-nanopyx.estimate_drift_alignment
       display_name: Estimate Drift Correction
@@ -32,5 +39,11 @@ contributions:
       autogenerate: false
     - command: napari-nanopyx.generate_srrf_image
       display_name: Generate SRRF Image
+      autogenerate: false
+    - command: napari-nanopyx.calculate_frc
+      display_name: Calculate FRC
+      autogenerate: false
+    - command: napari-nanopyx.calculate_decorr_analysis
+      display_name: Calculate Decorrelation Analysis
       autogenerate: false
 
