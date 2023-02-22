@@ -2,7 +2,36 @@
 requires = ["setuptools>=42.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
-
+[project]
+name = "napari-nanopyx"
+version = "0.0.1"
+description = "napari plugin for NanoPyx"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { file = "LICENSE.txt" }
+keywords = [
+    "napari",
+    "NanoJ",
+    "Super-Resolution Microscopy",
+    "Fluorescence",
+    "BioImage Analysis",
+]
+authors = [
+    { name = "Ricardo Henriques", email = "ricardo.jv.henriques@gmail.com" },
+    { name = "Bruno Saraiva", email = "bruno.msaraiva2@gmail.com" },
+    { name = "Inês Cunha", email = "inescunha200@gmail.com" },
+    { name = "António Brito", email = "antmsbrito95@gmail.com" },
+]
+maintainers = [{ name = "Bruno Saraiva", email = "bruno.msaraiva2@gmail.com" }]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "napari",
+    "nanopyx"
+]
 
 [tool.black]
 line-length = 79
