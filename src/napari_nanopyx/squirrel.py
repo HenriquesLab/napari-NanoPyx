@@ -75,5 +75,5 @@ def calculate_error_map(viewer: Viewer, img_ref: Image, img_sr: Image):
             viewer.layers[result_name].data = result
         except KeyError:
             # otherwise add it to the viewer
-            viewer.add_image(result, name=result_name)
+            viewer.add_image(result, name=result_name, colormap="viridis")
     
