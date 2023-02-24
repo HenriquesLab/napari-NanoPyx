@@ -23,6 +23,9 @@ contributions:
     - id: napari-nanopyx.calculate_decorr_analysis
       title: Calculate Decorrelation Analysis
       python_name: napari_nanopyx.squirrel:calculate_decorr_analysis
+    - id: napari-nanopyx.calculate_error_map
+      title: Calculate Error Map
+      python_name: napari_nanopyx.squirrel:calculate_error_map
 
   widgets:
     - command: napari-nanopyx.estimate_drift_alignment
@@ -46,4 +49,6 @@ contributions:
     - command: napari-nanopyx.calculate_decorr_analysis
       display_name: Calculate Decorrelation Analysis
       autogenerate: false
-
+    - command: napari-nanopyx.calculate_error_map
+      display_name: Calculate Error Map
+      autogenerate: true

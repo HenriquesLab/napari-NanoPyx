@@ -1,11 +1,13 @@
 from nanopyx.core.sr.frc import FIRECalculator
 from nanopyx.core.sr.decorr import DecorrAnalysis
+from nanopyx.core.sr.error_map import ErrorMap
 
 import os
 import pathlib
 import numpy as np
 import pandas as pd
 from napari.layers import Image
+from napari import Viewer
 from magicgui import magic_factory
 from napari.utils.notifications import show_info
 
@@ -56,3 +58,22 @@ def calculate_decorr_analysis(img: Image, pixel_size: float, units: str,
     show_info(f"Resolution: {decorr.resolution} {units}")
     table_name = img.name + "_DecorrAnalysis_results.csv"
     decorr.results_table.to_csv(str(save_path) + os.sep + table_name)
+    
+    
+
+def calculate_error_map(viewer: Viewer, img_ref: Image, img_sr: Image):
+    
+    squirrel_error_map = ErrorMap()
+    squirrel_error_map.optimise(img_ref.data, img_sr.data)
+    
+    result = squirrel_error_map.imRSE
+    
+    if result is not None:
+        result_name = img_sr.name + "_error_map"
+        try:
+            # if the layer exists, update the data
+            viewer.layers[result_name].data = result
+        except KeyError:
+            # otherwise add it to the viewer
+            viewer.add_image(result, name=result_name)
+    
