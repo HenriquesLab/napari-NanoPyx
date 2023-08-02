@@ -1,7 +1,6 @@
 from nanopyx.methods.srrf import SRRF
 from napari.layers import Image
 from napari import Viewer
-from napari.layers import Image
 from magicgui import magic_factory
 
 

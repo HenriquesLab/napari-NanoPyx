@@ -1,8 +1,6 @@
-import os
 import pathlib
 from nanopyx.methods import channel_registration
 from napari import Viewer
-from tkinter import Image
 from skimage.io import imread
 from napari.layers import Image
 from magicgui import magic_factory

@@ -1,30 +1,28 @@
-import os
-import pathlib
-
-import numpy as np
-import pandas as pd
 from magicgui import magic_factory
 from nanopyx.core.analysis.decorr import DecorrAnalysis
 from nanopyx.core.analysis.frc import FIRECalculator
 from nanopyx.core.transform.sr_error_map import ErrorMap
 from napari import Viewer
 from napari.layers import Image
-from napari.utils.notifications import show_info
 
 
 @magic_factory(
     call_button="Analyse",
     img={"label": "Image Stack"},
-    frame_1={"label": "Frame 1", 
-           "value": 0,
-           "min": 0,
-           "max": 10000000, 
-           "step": 1},
-    frame_2={"label": "Frame 2", 
-           "value": 1,
-           "min": 0,
-           "max": 10000000, 
-           "step": 1},
+    frame_1={
+        "label": "Frame 1", 
+        "value": 0,
+        "min": 0,
+        "max": 10000000, 
+        "step": 1
+    },
+    frame_2={
+        "label": "Frame 2", 
+        "value": 1,
+        "min": 0,
+        "max": 10000000, 
+        "step": 1
+    },
     pixel_size={
         "value": 1,
         "min": 0.0000001,

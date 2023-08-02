@@ -1,6 +1,5 @@
 import pathlib
 from nanopyx.methods import drift_alignment
-from tkinter import Image
 from napari import Viewer
 from napari.layers import Image, Shapes
 from magicgui import magic_factory
