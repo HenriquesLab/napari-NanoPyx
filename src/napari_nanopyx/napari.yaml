@@ -26,6 +26,9 @@ contributions:
     - id: napari-nanopyx.calculate_error_map
       title: Calculate Error Map
       python_name: napari_nanopyx.squirrel:calculate_error_map
+    - id: napari-nanopyx.generate_esrrf_image
+      title: Generate eSRRF Image
+      python_name: napari_nanopyx.esrrf:generate_esrrf_image
 
   widgets:
     - command: napari-nanopyx.estimate_drift_alignment
@@ -52,3 +55,6 @@ contributions:
     - command: napari-nanopyx.calculate_error_map
       display_name: Calculate Error Map
       autogenerate: true
+    - command: napari-nanopyx.generate_esrrf_image
+      display_name: Generate eSRRF Image
+      autogenerate: False
