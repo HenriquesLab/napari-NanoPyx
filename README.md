@@ -1,10 +1,8 @@
 # napari-nanopyx
 
-[![License GNU LGPL v3.0](https://img.shields.io/pypi/l/napari-nanopyx.svg?color=green)](https://github.com/HenriquesLab/napari-NanoPyx/raw/main/LICENSE)
+[![License](https://img.shields.io/github/license/HenriquesLab/NanoPyx?color=Green)](https://github.com/HenriquesLab/NanoPyx/blob/main/LICENSE.txt)
 [![PyPI](https://img.shields.io/pypi/v/napari-nanopyx.svg?color=green)](https://pypi.org/project/napari-nanopyx)
 [![Python Version](https://img.shields.io/pypi/pyversions/napari-nanopyx.svg?color=green)](https://python.org)
-[![tests](https://github.com/HenriquesLab/napari-NanoPyx/workflows/tests/badge.svg)](https://github.com/HenriquesLab/napari-NanoPyx/actions)
-[![codecov](https://codecov.io/gh/brunomsaraiva/napari-nanopyx/branch/main/graph/badge.svg)](https://codecov.io/gh/brunomsaraiva/napari-nanopyx)
 [![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/napari-nanopyx)](https://napari-hub.org/plugins/napari-nanopyx)
 
 napari plugin of Nanoscopy Python library (NanoPyx, the successor to NanoJ) - focused on light microscopy and super-resolution imaging
@@ -37,7 +35,7 @@ the coverage at least stays the same before you submit a pull request.
 
 ## License
 
-Distributed under the terms of the [GNU LGPL v3.0] license,
+Distributed under the terms of the [CC-By v4.0] license,
 "napari-nanopyx" is free and open source software
 
 ## Issues
@@ -53,6 +51,7 @@ If you encounter any problems, please [file an issue] along with a detailed desc
 [GNU LGPL v3.0]: http://www.gnu.org/licenses/lgpl-3.0.txt
 [Apache Software License 2.0]: http://www.apache.org/licenses/LICENSE-2.0
 [Mozilla Public License 2.0]: https://www.mozilla.org/media/MPL/2.0/index.txt
+[CC-By v4.0]: https://creativecommons.org/licenses/by/4.0/
 [cookiecutter-napari-plugin]: https://github.com/napari/cookiecutter-napari-plugin
 
 [napari]: https://github.com/napari/napari
