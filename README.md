@@ -4,6 +4,7 @@
 [![PyPI](https://img.shields.io/pypi/v/napari-nanopyx.svg?color=green)](https://pypi.org/project/napari-nanopyx)
 [![Python Version](https://img.shields.io/pypi/pyversions/napari-nanopyx.svg?color=green)](https://python.org)
 [![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/napari-nanopyx)](https://napari-hub.org/plugins/napari-nanopyx)
+[![Docs](https://img.shields.io/badge/documentation-link-blueviolet)](https://github.com/HenriquesLab/napari-NanoPyx/wiki)
 
 napari plugin of Nanoscopy Python library (NanoPyx, the successor to NanoJ) - focused on light microscopy and super-resolution imaging
 
