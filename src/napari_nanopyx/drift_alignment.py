@@ -23,7 +23,6 @@ from napari.utils.notifications import show_info
         "choices": [
             ("Max", "Max"),
             ("Subpixel Fitting", "Max Fitting"),
-            ("RCC", "rcc"),
         ],
         "label": "Shift Calculation Method",
     },
