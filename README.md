@@ -30,8 +30,9 @@ You can install `napari-nanopyx` via [pip]:
 
     pip install napari-nanopyx
 
+## User Documentation
 
-
+You can find installation and usage instructions in the [wiki](https://github.com/HenriquesLab/napari-NanoPyx/wiki).
 
 ## Contributing
 
