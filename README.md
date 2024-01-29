@@ -6,9 +6,7 @@
 [![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/napari-nanopyx)](https://napari-hub.org/plugins/napari-nanopyx)
 [![Docs](https://img.shields.io/badge/documentation-link-blueviolet)](https://github.com/HenriquesLab/napari-NanoPyx/wiki)
 
-napari plugin of Nanoscopy Python library (NanoPyx, the successor to NanoJ) - focused on light microscopy and super-resolution imaging
-
-if you found this work useful, please cite: [preprint](https://www.biorxiv.org/content/10.1101/2023.08.13.553080v1) and  [![DOI](https://zenodo.org/badge/505388398.svg)](https://zenodo.org/badge/latestdoi/505388398)
+napari plugin of Nanoscopy Python library (NanoPyx, the successor to NanoJ) - focused on light microscopy and super-resolution imaging.
 
 <html>
 <img src="https://user-images.githubusercontent.com/7071808/259983552-ef7aa814-16ba-4947-a69f-1f096d70370e.png" alt="logo" width="400"/>
@@ -66,3 +64,7 @@ If you encounter any problems, please [file an issue] along with a detailed desc
 [tox]: https://tox.readthedocs.io/en/latest/
 [pip]: https://pypi.org/project/pip/
 [PyPI]: https://pypi.org/
+
+## Citing
+
+If you found this work useful, please cite: [preprint](https://www.biorxiv.org/content/10.1101/2023.08.13.553080v1) and  [![DOI](https://zenodo.org/badge/505388398.svg)](https://zenodo.org/badge/latestdoi/505388398)
