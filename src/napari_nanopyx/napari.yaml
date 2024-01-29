@@ -2,6 +2,9 @@ name: napari-nanopyx
 display_name: napari NanoPyx
 contributions:
   commands:
+    - id: napari-nanopyx.benchmark
+      title: Benchmark Liquid Engine methods
+      python_name: napari_nanopyx.benchmarking:benchmark_nanopyx
     - id: napari-nanopyx.estimate_drift_alignment
       title: Estimate Drift Alignment
       python_name: napari_nanopyx.drift_alignment:estimate_drift_alignment
@@ -31,6 +34,9 @@ contributions:
       python_name: napari_nanopyx.esrrf:generate_esrrf_image
 
   widgets:
+    - command: napari-nanopyx.benchmark
+      display_name: Benchmark Liquid Engine methods
+      autogenerate: False
     - command: napari-nanopyx.estimate_drift_alignment
       display_name: Estimate Drift Correction
       autogenerate: false
