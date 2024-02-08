@@ -6,7 +6,7 @@
 [![napari hub](https://img.shields.io/endpoint?url=https://api.napari-hub.org/shields/napari-nanopyx)](https://napari-hub.org/plugins/napari-nanopyx)
 [![Docs](https://img.shields.io/badge/documentation-link-blueviolet)](https://github.com/HenriquesLab/napari-NanoPyx/wiki)
 
-napari plugin of Nanoscopy Python library (NanoPyx, the successor to NanoJ) - focused on light microscopy and super-resolution imaging.
+napari plugin of [NanoPyx](https://github.com/HenriquesLab/NanoPyx) (the successor to NanoJ) - focused on light microscopy and super-resolution imaging.
 
 ----------------------------------
 
