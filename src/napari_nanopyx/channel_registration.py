@@ -74,9 +74,13 @@ def estimate_channel_registration(
         try:
             # if the layer exists, update the data
             viewer.layers[result_name].data = result
+            viewer.dims.current_step = (0, 0, 0, 0, 0)
+            viewer.reset_view()
         except KeyError:
             # otherwise add it to the viewer
             viewer.add_image(result, name=result_name)
+            viewer.dims.current_step = (0, 0, 0, 0, 0)
+            viewer.reset_view()
 
 
 @magic_factory(
@@ -99,6 +103,10 @@ def apply_channel_registration(
             try:
                 # if the layer exists, update the data
                 viewer.layers[result_name].data = result
+                viewer.dims.current_step = (0, 0, 0, 0, 0)
+            viewer.reset_view()
             except KeyError:
                 # otherwise add it to the viewer
                 viewer.add_image(result, name=result_name)
+                viewer.dims.current_step = (0, 0, 0, 0, 0)
+            viewer.reset_view()

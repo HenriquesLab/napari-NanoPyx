@@ -78,6 +78,10 @@ def generate_esrrf_image(
         try:
             # if the layer exists, update the data
             viewer.layers[result_esrrf_name].data = output_stack
+            viewer.dims.current_step = (0, 0, 0, 0, 0)
+            viewer.reset_view()
         except KeyError:
             # otherwise add it to the viewer
             viewer.add_image(output_stack, name=result_esrrf_name)
+            viewer.dims.current_step = (0, 0, 0, 0, 0)
+            viewer.reset_view()

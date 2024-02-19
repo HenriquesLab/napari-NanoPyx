@@ -48,8 +48,12 @@ def calculate_frc(
         result_name = img.name + "_frc_plot"
         try:
             viewer.layers[result_name].data = plot
+            viewer.dims.current_step = (0, 0, 0, 0, 0)
+            viewer.reset_view()
         except KeyError:
             viewer.add_image(plot, name=result_name)
+            viewer.dims.current_step = (0, 0, 0, 0, 0)
+            viewer.reset_view()
 
 
 @magic_factory(
@@ -86,8 +90,12 @@ def calculate_decorr_analysis(
         result_name = img.name + "_decorr_plot"
         try:
             viewer.layers[result_name].data = plot
+            viewer.dims.current_step = (0, 0, 0, 0, 0)
+            viewer.reset_view()
         except KeyError:
             viewer.add_image(plot, name=result_name)
+            viewer.dims.current_step = (0, 0, 0, 0, 0)
+            viewer.reset_view()
 
 
 def calculate_error_map(viewer: Viewer, img_ref: Image, img_sr: Image):
@@ -113,6 +121,10 @@ def calculate_error_map(viewer: Viewer, img_ref: Image, img_sr: Image):
         try:
             # if the layer exists, update the data
             viewer.layers[result_name].data = result
+            viewer.dims.current_step = (0, 0, 0, 0, 0)
+            viewer.reset_view()
         except KeyError:
             # otherwise add it to the viewer
             viewer.add_image(result, name=result_name, colormap="viridis")
+            viewer.dims.current_step = (0, 0, 0, 0, 0)
+            viewer.reset_view()

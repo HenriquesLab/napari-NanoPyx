@@ -84,6 +84,10 @@ def generate_srrf_image(
         try:
             # if the layer exists, update the data
             viewer.layers[result_output_name].data = output
+            viewer.dims.current_step = (0, 0, 0, 0, 0)
+            viewer.reset_view()
         except KeyError:
             # otherwise add it to the viewer
             viewer.add_image(output, name=result_output_name)
+            viewer.dims.current_step = (0, 0, 0, 0, 0)
+            viewer.reset_view()
