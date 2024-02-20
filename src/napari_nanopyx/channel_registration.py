@@ -1,7 +1,7 @@
 import pathlib
 from nanopyx.methods import channel_registration
 from napari import Viewer
-from skimage.io import imread
+from tifffile import imread
 from napari.layers import Image
 from magicgui import magic_factory
 from napari.utils.notifications import show_info
@@ -61,6 +61,7 @@ def estimate_channel_registration(
         max_shift,
         blocks_per_axis,
         min_similarity,
+        algorithm="weight",
         method=method,
         save_translation_masks=save_translation_masks,
         translation_mask_save_path=str(translation_mask_save_path),
@@ -104,7 +105,6 @@ def apply_channel_registration(
                 # if the layer exists, update the data
                 viewer.layers[result_name].data = result
                 viewer.dims.current_step = (0, 0, 0, 0, 0)
-            viewer.reset_view()
             except KeyError:
                 # otherwise add it to the viewer
                 viewer.add_image(result, name=result_name)
