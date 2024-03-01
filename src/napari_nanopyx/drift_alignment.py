@@ -16,16 +16,6 @@ from napari.utils.notifications import show_info
         "choices": [("First Frame", 0), ("Previous Frame", 1)],
         "label": "Reference Frame",
     },
-    shift_calc_method={
-        "widget_type": "RadioButtons",
-        "orientation": "vertical",
-        "value": "Max Fitting",
-        "choices": [
-            ("Max", "Max"),
-            ("Subpixel Fitting", "Max Fitting"),
-        ],
-        "label": "Shift Calculation Method",
-    },
     time_averaging={
         "value": 1,
         "label": "Time Averaging",
@@ -51,7 +41,6 @@ def estimate_drift_alignment(
     max_expected_drift: int,
     use_roi: bool,
     roi: Shapes,
-    shift_calc_method: str,
     save_as_npy: bool,
     apply_correction: bool,
     save_drift_table_path=pathlib.Path.home(),
@@ -72,7 +61,6 @@ def estimate_drift_alignment(
             ref_option=ref_option,
             time_averaging=time_averaging,
             max_expected_drift=max_expected_drift,
-            shift_calc_method=shift_calc_method,
             use_roi=use_roi,
             roi=(x0, y0, x1, y1),
             apply=apply_correction,
@@ -86,7 +74,6 @@ def estimate_drift_alignment(
             ref_option=ref_option,
             time_averaging=time_averaging,
             max_expected_drift=max_expected_drift,
-            shift_calc_method=shift_calc_method,
             use_roi=use_roi,
             apply=apply_correction,
         )

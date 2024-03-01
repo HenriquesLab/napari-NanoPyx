@@ -25,20 +25,11 @@ from napari.utils.notifications import show_info
         "max": 1,
         "step": 0.1,
     },
-    method={
-        "widget_type": "RadioButtons",
-        "orientation": "vertical",
-        "value": "subpixel",
-        "choices": [("Max", "pixel"), ("Subpixel Fitting", "subpixel")],
-        "label": "Shift Calculation Method",
-    },
     save_translation_masks={"value": True, "label": "Save Translation Masks"},
     translation_mask_save_path={
         "label": "Save Translation Masks to",
         "mode": "w",
     },
-    save_ccms={"value": False, "label": "Save Cross Correlation Maps"},
-    ccms_save_path={"label": "Save Cross Correlation Maps to", "mode": "w"},
     apply={"value": True, "label": "Apply"},
 )
 def estimate_channel_registration(
@@ -48,12 +39,9 @@ def estimate_channel_registration(
     max_shift: int,
     blocks_per_axis: int,
     min_similarity: float,
-    method: str,
     save_translation_masks: bool,
-    save_ccms: bool,
     apply: bool,
     translation_mask_save_path=pathlib.Path.home() / "translation_mask",
-    ccms_save_path=pathlib.Path.home() / "ccms",
 ):
     result = channel_registration.estimate_channel_registration(
         img.data,
@@ -61,12 +49,8 @@ def estimate_channel_registration(
         max_shift,
         blocks_per_axis,
         min_similarity,
-        algorithm="weight",
-        method=method,
         save_translation_masks=save_translation_masks,
         translation_mask_save_path=str(translation_mask_save_path),
-        save_ccms=save_ccms,
-        ccms_save_path=str(ccms_save_path),
         apply=apply,
     )
 
