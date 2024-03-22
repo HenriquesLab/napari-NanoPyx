@@ -15,6 +15,24 @@ napari plugin of [NanoPyx](https://github.com/HenriquesLab/NanoPyx) (the success
 
 This [napari] plugin was generated with [Cookiecutter] using [@napari]'s [cookiecutter-napari-plugin] template.
 
+## What is the NanoPyx 🔬 Library?
+
+NanoPyx is a library specialized in the analysis of light microscopy and super-resolution data.
+It is a successor to [NanoJ](https://github.com/HenriquesLab/NanoJ-Core), which is a Java library for the analysis of super-resolution microscopy data.
+
+NanoPyx focuses on performance, by heavily exploiting cython aided multiprocessing and simplicity. It implements methods for the bioimage analysis field, with a special emphasis on those developed by the [Henriques Laboratory](https://henriqueslab.github.io/).
+It will be distributed as a Python Library and also as [Codeless Jupyter Notebooks](https://github.com/HenriquesLab/NanoPyx#codeless-jupyter-notebooks-available), that can be run locally or on Google Colab, and as a [napari plugin](https://github.com/HenriquesLab/napari-NanoPyx).
+
+You can read more about NanoPyx in our [preprint](https://www.biorxiv.org/content/10.1101/2023.08.13.553080v1).
+
+Currently it implements the following approaches:
+- A reimplementation of the NanoJ image registration, SRRF and Super Resolution metrics
+- eSRRF
+- Non-local means denoising
+- More to come soon™
+
+if you found this work useful, please cite: [preprint](https://www.biorxiv.org/content/10.1101/2023.08.13.553080v1) and  [![DOI](https://zenodo.org/badge/505388398.svg)](https://zenodo.org/badge/latestdoi/505388398)
+
 ## Installation
 
 You can install `napari-nanopyx` via [pip]:
