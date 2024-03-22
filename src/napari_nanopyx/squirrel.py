@@ -98,6 +98,14 @@ def calculate_decorr_analysis(
             viewer.reset_view()
 
 
+@magic_factory(
+        img_ref={
+            "label":"Reference Image"
+        },
+        img_sr={
+            "label":"Super-resolved Image"
+        }
+)
 def calculate_error_map(viewer: Viewer, img_ref: Image, img_sr: Image):
     squirrel_error_map = ErrorMap()
     if len(img_ref.data.shape) == 3:

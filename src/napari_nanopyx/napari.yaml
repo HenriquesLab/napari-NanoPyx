@@ -60,7 +60,7 @@ contributions:
       autogenerate: false
     - command: napari-nanopyx.calculate_error_map
       display_name: Calculate Error Map
-      autogenerate: true
+      autogenerate: false
     - command: napari-nanopyx.generate_esrrf_image
       display_name: Generate eSRRF Image
-      autogenerate: False
+      autogenerate: false
