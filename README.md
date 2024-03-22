@@ -1,5 +1,7 @@
 # napari-nanopyx
 
+<img src="https://github.com/HenriquesLab/NanoPyx/blob/main/.github/logo.png" align="right" width="230"/>
+
 [![License](https://img.shields.io/github/license/HenriquesLab/NanoPyx?color=Green)](https://github.com/HenriquesLab/NanoPyx/blob/main/LICENSE.txt)
 [![PyPI](https://img.shields.io/pypi/v/napari-nanopyx.svg?color=green)](https://pypi.org/project/napari-nanopyx)
 [![Python Version](https://img.shields.io/pypi/pyversions/napari-nanopyx.svg?color=green)](https://python.org)
