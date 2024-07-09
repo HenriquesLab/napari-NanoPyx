@@ -33,7 +33,7 @@ from magicgui import magic_factory
             ("Variance", "VAR"),
             ("Autocorrelation", "TAC2"),
         ],
-        "label": "Shift Calculation Method",
+        "label": "Reconstruction",
     },
 )
 def generate_esrrf_image(
