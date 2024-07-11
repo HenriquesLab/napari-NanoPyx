@@ -32,6 +32,9 @@ contributions:
     - id: napari-nanopyx.generate_esrrf_image
       title: Generate eSRRF Image
       python_name: napari_nanopyx.esrrf:generate_esrrf_image
+    - id: napari-nanopyx.nlm_denoise_image
+      title: Non-local Means Denoising
+      python_name: napari_nanopyx.nlm_denoising:denoising_img
 
   widgets:
     - command: napari-nanopyx.benchmark
@@ -63,4 +66,7 @@ contributions:
       autogenerate: false
     - command: napari-nanopyx.generate_esrrf_image
       display_name: Generate eSRRF Image
+      autogenerate: false
+    - command: napari-nanopyx.nlm_denoise_image
+      display_name: Non-local Means Denoising
       autogenerate: false
