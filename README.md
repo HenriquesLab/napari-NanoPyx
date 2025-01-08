@@ -23,7 +23,7 @@ It is a successor to [NanoJ](https://github.com/HenriquesLab/NanoJ-Core), which 
 NanoPyx focuses on performance, by heavily exploiting cython aided multiprocessing and simplicity. It implements methods for the bioimage analysis field, with a special emphasis on those developed by the [Henriques Laboratory](https://henriqueslab.github.io/).
 It will be distributed as a Python Library and also as [Codeless Jupyter Notebooks](https://github.com/HenriquesLab/NanoPyx#codeless-jupyter-notebooks-available), that can be run locally or on Google Colab, and as a [napari plugin](https://github.com/HenriquesLab/napari-NanoPyx).
 
-You can read more about NanoPyx in our [preprint](https://www.biorxiv.org/content/10.1101/2023.08.13.553080v1).
+You can read more about NanoPyx in our [publication].
 
 Currently it implements the following approaches:
 - A reimplementation of the NanoJ image registration, SRRF and Super Resolution metrics
@@ -73,7 +73,8 @@ If you encounter any problems, please [file an issue] along with a detailed desc
 [tox]: https://tox.readthedocs.io/en/latest/
 [pip]: https://pypi.org/project/pip/
 [PyPI]: https://pypi.org/
+[publication]: https://doi.org/10.1038/s41592-024-02562-6
 
 ## Citing
 
-If you found this work useful, please cite: [preprint](https://www.biorxiv.org/content/10.1101/2023.08.13.553080v1) and  [![DOI](https://zenodo.org/badge/505388398.svg)](https://zenodo.org/badge/latestdoi/505388398)
+If you found this work useful, please cite our [publication].
