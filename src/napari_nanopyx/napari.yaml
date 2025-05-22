@@ -30,8 +30,14 @@ contributions:
       title: Calculate Error Map
       python_name: napari_nanopyx.squirrel:calculate_error_map
     - id: napari-nanopyx.generate_esrrf_image
-      title: Generate eSRRF Image
+      title: Generate eSRRF 2D Image
       python_name: napari_nanopyx.esrrf:generate_esrrf_image
+    - id: napari-nanopyx.parameter_sweep
+      title: eSRRF 2D Parameter Sweep
+      python_name: napari_nanopyx.esrrf:parameter_sweep
+    - id: napari-nanopyx.generate_esrrf_3d_image
+      title: Generate eSRRF 3D Image
+      python_name: napari_nanopyx.esrrf:generate_esrrf_3d_image
     - id: napari-nanopyx.nlm_denoise_image
       title: Non-local Means Denoising
       python_name: napari_nanopyx.nlm_denoising:denoising_img
@@ -65,7 +71,13 @@ contributions:
       display_name: Calculate Error Map
       autogenerate: false
     - command: napari-nanopyx.generate_esrrf_image
-      display_name: Generate eSRRF Image
+      display_name: Generate eSRRF 2D Image
+      autogenerate: false
+    - command: napari-nanopyx.parameter_sweep
+      display_name: Run eSRRF 2D Parameter Sweep
+      autogenerate: false
+    - command: napari-nanopyx.generate_esrrf_3d_image
+      display_name: Generate eSRRF 3D Image
       autogenerate: false
     - command: napari-nanopyx.nlm_denoise_image
       display_name: Non-local Means Denoising
