@@ -123,6 +123,16 @@ def generate_esrrf_image(
         "label": "Ring Radii (comma-separated floats)",
         "value": "1.5",
     },
+    use_decorr={
+        "value": True,
+        "label": "Use Image Decorrelation Analysis",
+    },
+    n_blocks={
+        "value": 10,
+        "label": "Number of Blocks per axis",
+        "min": 1,
+        "max": 100,
+    },
     reconstruction_order={
         "widget_type": "RadioButtons",
         "orientation": "vertical",
@@ -141,6 +151,8 @@ def parameter_sweep(
     magnification: int,
     sensitivities: str,
     radii: str,
+    use_decorr: bool,
+    n_blocks: int,
     reconstruction_order: str,
 ):
     # Parse comma-separated floats from the string inputs
@@ -149,21 +161,55 @@ def parameter_sweep(
     ]
     radii_list = [float(r.strip()) for r in radii.split(",") if r.strip()]
 
-    output_stack = run_esrrf_parameter_sweep(
-        img.data,
-        magnification=magnification,
-        radii=radii_list,
-        sensitivities=sensitivities_list,
-        temporal_correlation=reconstruction_order,
-        use_decorr=False,
-        return_qnr=True,
+    output_stack = np.zeros(
+        (len(sensitivities_list), len(radii_list)), dtype=np.float32
     )
 
-    if np.sum(np.isnan(output_stack)) > 0:
-        warnings.warn(
-            "The parameter sweep returned NaN values. This is likely caused by the generated frames being too similar, try splitting the image into blocks."
-        )
-        output_stack = np.nan_to_num(np.array(output_stack), nan=1.0)
+    block_row_size = img.data.shape[0] // n_blocks
+    block_col_size = img.data.shape[1] // n_blocks
+
+    for row_i in range(n_blocks):
+        for col_i in range(n_blocks):
+            # Extract the block from the image
+            block = img.data[
+                row_i * block_row_size : (row_i + 1) * block_row_size,
+                col_i * block_col_size : (col_i + 1) * block_col_size,
+            ]
+
+            # Run the parameter sweep on the block
+            output_block = run_esrrf_parameter_sweep(
+                block,
+                magnification=magnification,
+                radii=radii_list,
+                sensitivities=sensitivities_list,
+                temporal_correlation=reconstruction_order,
+                use_decorr=use_decorr,
+                return_qnr=True,
+            )
+            output_block = np.nan_to_num(np.array(output_block), nan=0.000001)
+
+            # Store the results in the output stack
+            output_stack += output_block
+
+    print(output_stack)
+    output_stack /= n_blocks**2
+
+    print(output_stack)
+    # output_stack = run_esrrf_parameter_sweep(
+    #     img.data,
+    #     magnification=magnification,
+    #     radii=radii_list,
+    #     sensitivities=sensitivities_list,
+    #     temporal_correlation=reconstruction_order,
+    #     use_decorr=False,
+    #     return_qnr=True,
+    # )
+
+    # if np.sum(np.isnan(output_stack)) > 0:
+    #     warnings.warn(
+    #         "The parameter sweep returned NaN values. This is likely caused by the generated frames being too similar, try splitting the image into blocks."
+    #     )
+    #     output_stack = np.nan_to_num(np.array(output_stack), nan=1.0)
     # Generate matplotlib QnR plot as image
     fig, ax = plt.subplots(figsize=(6, 5), dpi=300)
     ax.imshow(output_stack, cmap="berlin_r")
