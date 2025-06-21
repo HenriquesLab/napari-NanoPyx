@@ -212,7 +212,7 @@ def parameter_sweep(
     #     output_stack = np.nan_to_num(np.array(output_stack), nan=1.0)
     # Generate matplotlib QnR plot as image
     fig, ax = plt.subplots(figsize=(6, 5), dpi=300)
-    ax.imshow(output_stack, cmap="berlin_r")
+    ax.imshow(output_stack, cmap="coolwarm_r")
     ax.set_xticks(np.arange(len(radii_list)))
     ax.set_yticks(np.arange(len(sensitivities_list)))
     ax.set_xticklabels([str(r) for r in radii_list])
