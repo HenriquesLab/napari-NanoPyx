@@ -67,33 +67,17 @@ def generate_esrrf_image(
     macro_pixel_correction: bool = True,
     run_type: str = "auto",
 ):
-    if frames_per_timepoint == 0:
-        frames_per_timepoint = img.data.shape[0]
-    elif frames_per_timepoint > img.data.shape[0]:
-        frames_per_timepoint = img.data.shape[0]
-
-    output_stack = []
-    if run_type == "auto":
-        run_type = None
-    for i in range(img.data.shape[0] // frames_per_timepoint):
-        block = img.data[
-            i * frames_per_timepoint : (i + 1) * frames_per_timepoint
-        ]
-        output = eSRRF(
-            block,
-            magnification=magnification,
-            radius=radius,
-            sensitivity=sensitivity,
-            doIntensityWeighting=do_intensity_weighting,
-            macro_pixel_correction=macro_pixel_correction,
-            _force_run_type=run_type,
-        )
-
-        output_stack.append(
-            calculate_eSRRF_temporal_correlations(output, reconstruction_order)
-        )
-
-    output_stack = np.array(output_stack)
+    output_stack = eSRRF(
+        img.data,
+        magnification=magnification,
+        radius=radius,
+        sensitivity=sensitivity,
+        frames_per_timepoint=frames_per_timepoint,
+        temporal_correlation=reconstruction_order,
+        doIntensityWeighting=do_intensity_weighting,
+        macro_pixel_correction=macro_pixel_correction,
+        _force_run_type=run_type,
+    )
 
     if output_stack is not None:
         result_esrrf_name = img.name + "_esrrf"
