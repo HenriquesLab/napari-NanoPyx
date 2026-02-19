@@ -50,6 +50,7 @@ def benchmark_nanopyx(viewer: napari.Viewer, n_benchmark_runs: int = 3, img_dims
     rotation = math.radians(rotation)
     img = np.random.random((img_dims, img_dims)).astype(np.float32)
     img_int = np.random.random((img_dims * magnification, img_dims * magnification)).astype(np.float32)
+    img_grads = np.random.random((img_dims * magnification*2, img_dims * magnification*2)).astype(np.float32)
     kernel = np.ones((conv_kernel_dims, conv_kernel_dims)).astype(np.float32)
 
     bicubic_sm = nanopyx.core.transform._le_interpolation_bicubic.ShiftAndMagnify()
@@ -139,7 +140,7 @@ def benchmark_nanopyx(viewer: napari.Viewer, n_benchmark_runs: int = 3, img_dims
 
     pbr.set_description("Benchmarking Radial Gradient Convergence calculation")
     for i in range(n_benchmark_runs):
-        rgc.benchmark(img_int, img_int, img_int)
+        rgc.benchmark(img_int, img_grads, img_grads)
         pbr.update(1)
 
     pbr.set_description("Benchmarking eSRRF calculation")
