@@ -72,9 +72,7 @@ def generate_srrf_image(
         )
 
         output.append(
-            calculate_SRRF_temporal_correlations(
-                result[0], reconstruction_order
-            )
+            calculate_SRRF_temporal_correlations(result, reconstruction_order)
         )
 
     output = np.array(output)
