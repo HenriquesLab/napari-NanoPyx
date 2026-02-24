@@ -185,7 +185,9 @@ def benchmark_nanopyx(
 
     pbr.set_description("Benchmarking Radial Gradient Convergence calculation")
     for i in range(n_benchmark_runs):
-        rgc.benchmark(img_int_4grads, img_grads, img_grads)
+        rgc.benchmark(
+            img_grads, img_grads, img_int_4grads, magnification=magnification
+        )
         pbr.update(1)
 
     pbr.set_description("Benchmarking eSRRF calculation")
