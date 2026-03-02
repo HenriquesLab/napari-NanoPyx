@@ -80,6 +80,15 @@ def benchmark_nanopyx(
 
     conv2d = nanopyx.core.transform._le_convolution.Convolution()
 
+    if "cuda" in conv2d._run_types:
+        conv2d._run_types.pop("cuda")
+    if "dask" in conv2d._run_types:
+        conv2d._run_types.pop("dask")
+    if "transonic" in conv2d._run_types:
+        conv2d._run_types.pop("transonic")
+    if "numba" in conv2d._run_types:
+        conv2d._run_types.pop("numba")
+
     rad = nanopyx.core.transform._le_radiality.Radiality()
     rc = (
         nanopyx.core.transform._le_roberts_cross_gradients.GradientRobertsCross()
