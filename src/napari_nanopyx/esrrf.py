@@ -23,6 +23,10 @@ import warnings
         "min": 0,
         "max": 100000,
     },
+    use_fht={
+        "value": False,
+        "label": "Use FHT interpolation",
+    },
     do_intensity_weighting={
         "value": True,
         "label": "Apply Intensity Weighting",
@@ -63,6 +67,7 @@ def generate_esrrf_image(
     radius: float,
     frames_per_timepoint: int,
     do_intensity_weighting: bool,
+    use_fht: bool,
     reconstruction_order: str,
     macro_pixel_correction: bool = True,
     run_type: str = "auto",
@@ -75,6 +80,7 @@ def generate_esrrf_image(
         frames_per_timepoint=frames_per_timepoint,
         temporal_correlation=reconstruction_order,
         doIntensityWeighting=do_intensity_weighting,
+        use_fht=use_fht,
         macro_pixel_correction=macro_pixel_correction,
         _force_run_type=run_type,
     )
